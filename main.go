@@ -5,6 +5,20 @@ import (
 	"math"
 )
 
+// Factorial
+func getFactorial(n int) int {
+	// worst case return 1
+	if n < 0 {
+		return 1
+	}
+	factorial := 1
+	for i := 1; i < n+1; i++ {
+		factorial *= i
+	}
+	return factorial
+}
+
+// check whether an integer is a prime or not
 func isPrime(allPrimes []int, n int) bool {
 	nSqrt := int(math.Sqrt(float64(n)))
 	for i := 0; len(allPrimes) != 0 && allPrimes[i] <= nSqrt; i += 1 {
@@ -26,7 +40,8 @@ func genPrimes(n int) []int {
 }
 
 func main() {
-	upperLimit := 100
+	upperLimit := 10
 	allPrimesGen := genPrimes(upperLimit)
 	fmt.Printf("all primes :- %v\n", allPrimesGen)
+	fmt.Printf("factorial for :- %v  ---- res :- %v\n", upperLimit, getFactorial(upperLimit))
 }
